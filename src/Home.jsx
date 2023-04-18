@@ -26,7 +26,6 @@ const mockEmployees = [
 ];
 
 const Home = () => {
-
   const [employees, setEmployees] = useState(mockEmployees);
   const [sector, setSector] = useState(null);
 
