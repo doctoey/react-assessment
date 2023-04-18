@@ -63,20 +63,27 @@ const Admin = ({
     );
   } else {
     return (
-      <div>
+      <div className="d-flex align-items-center justify-content-center" 
+      style={{ minHeight: "100vh", backgroundColor: "#ADC5B7" }}>
+      <div className="text-center">
         <h1>
           Generation Thailand <br /> Home - Admin Sector
         </h1>
-        <button onClick={navigateToHome}>Home Sector</button>
-        <button onClick={navigateToUser}>User Home Sector</button>
+        <button className="btn btn-dark mt-3 mr-2"
+        onClick={navigateToHome}>Home Sector</button>
+        <button className="btn btn-light mt-3"
+        onClick={navigateToUser}>User Home Sector</button>
+        <div className="mt-4">
         <div>
-          <p>Create User Here</p>
+          <h5>Create User Here</h5>
           <input type="text" placeholder="Name" onChange={handleName} />
           <input type="text" placeholder="LastName" onChange={handleLastname} />
           <input type="text" placeholder="Position" onChange={handlePosition} />
-          <button onClick={handleSave}>SAVE</button>
+          <button className="btn btn-light rounded-pill px-3"
+          onClick={handleSave}>SAVE</button>
         </div>
-        <table>
+        </div>
+        <table className="table mt-4">
         <thead>
           <tr>
             <th>Name</th>
@@ -93,13 +100,15 @@ const Admin = ({
                 <td>{item.lastname}</td>
                 <td>{item.position}</td>
                 <td>
-                  <button onClick={() => handleDelete(item.id)}>DELETE</button>
+                  <button className="btn btn-danger rounded-pill px-3"
+                  onClick={() => handleDelete(item.id)}>DELETE</button>
                 </td>
               </tr>
             );
           })}
         </tbody>
         </table>
+        </div>
       </div>
     );
   }

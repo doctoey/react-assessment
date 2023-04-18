@@ -32,13 +32,19 @@ const User = ({
     );
   } else {
     return (
-      <div>
+      <div className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh", backgroundColor: "#ADC5B7" }}>
+        <div className="text-center">
         <h1>
           Generation Thailand <br /> Home - User Sector
         </h1>
-        <button onClick={navigateToHome}>Home Sector</button>
-        <button onClick={navigateToAdmin}>Admin Home Sector</button>
-        <table>
+        <button className="btn btn-dark mt-3 mr-2"
+        onClick={navigateToHome}>Home Sector</button>
+
+        <button className="btn btn-light mt-3"
+        onClick={navigateToAdmin}>Admin Home Sector</button>
+
+        <table className="table mt-4">
         <thead>
           <tr>
             <th>Name</th>
@@ -58,6 +64,7 @@ const User = ({
           })}
         </tbody>
         </table>
+        </div>
       </div>
     );
   }
