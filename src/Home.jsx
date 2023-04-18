@@ -28,8 +28,8 @@ const mockEmployees = [
 const Home = () => {
 
 
-const [employees, setEmployees] = useState('Home')
-const [sector, setSector] = useState()
+const [employees, setEmployees] = useState(mockEmployees)
+const [sector, setSector] = useState(null)
 
 const employeeShow = (employee) => {
   return (
@@ -43,28 +43,50 @@ const employeeShow = (employee) => {
 
 useEffect(() => {
   setEmployees(mockEmployees)
-}, [Home]);
+}, []);
+
+const navigateToHome = () => {
+  setSector('Home');
+};
+
+const navigateToUser = () => {
+  setSector('User');
+};
+
+const navigateToAdmin = () => {
+  setSector('Admin');
+};
+
 
 if (sector === 'User') {
   return (
       <Layout>
-          <User />
+          <User employees={employees}
+            navigateToHome={navigateToHome}
+            navigateToUser={navigateToUser}
+            navigateToAdmin={navigateToAdmin}
+          />
       </Layout>
   )
 } else if (sector === 'Admin') {
   return (
     <Layout>
-        <Admin />
+        <Admin employees={employees}
+          navigateToHome={navigateToHome}
+          navigateToUser={navigateToUser}
+          navigateToAdmin={navigateToAdmin}
+        />
     </Layout>
   )
 } else {
+
   return (
     <Layout>
-        
+        <h1>Generation Thailand <br/> React - Assessment</h1>
+
         <button onClick={() => setSector('User')} >User Home Sector</button>
         <button onClick={() => setSector('Admin')} >Admin Home Sector</button>
 
-        {/* {mockEmployees.map(employeeShow)} */}
 
     </Layout>
   )

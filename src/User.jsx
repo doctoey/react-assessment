@@ -5,51 +5,37 @@ import Home from "./Home"
 import Admin from "./Admin"
 
 
-const User = () => {
-    const mockEmployees = [
-        {
-          id: 0,
-          name: "mock",
-          lastname: 'mocklastname',
-          position: "Manager"
-        },
-        {
-          id: 1,
-          name: "employee 1",
-          lastname: "em",
-          position: "Engineer"
-        },
-        {
-          id: 2,
-          name: "employee 2",
-          lastname: "lord",
-          position: "Designer"
-        },
-      ]
+const User = ({employees,navigateToHome,navigateToUser,navigateToAdmin}) => {
 
-    const [employees, setEmployees] = useState(mockEmployees);
-    const [sector, setSector] = useState()
+    const [sector, setSector] = useState(null)
 
     if (sector === 'Admin') {
         return (
-            <div>
-                <Admin />
-            </div>
+
+                <Admin employees={employees}
+                navigateToHome={navigateToHome}
+                navigateToUser={navigateToUser}
+                navigateToAdmin={navigateToAdmin}
+                />
+
         )
       } else if (sector === 'Home') {
         return (
-          <div>
-              <Home />
-          </div>
+
+              <Home employees={employees}
+                navigateToHome={navigateToHome}
+                navigateToUser={navigateToUser}
+                navigateToAdmin={navigateToAdmin}
+              />
+
         )
       } else {
         return (
           <div>
-            Userrrrrrrrrrrr
-            <button onClick={() => setSector("Admin")}>
-              Admin Home Sector
-            </button>
-            <button onClick={() => setSector("Home")}>Home Sector</button>
+
+            <h1>Generation Thailand <br/> Home - User Sector</h1>
+            <button onClick={navigateToHome}>Home Sector</button>
+            <button onClick={navigateToAdmin}>Admin Home Sector</button>
             <table>
               <tr>
                 <th>name</th>
@@ -66,6 +52,7 @@ const User = () => {
                 );
               })}
             </table>
+
           </div>
         );
       }

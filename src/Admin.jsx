@@ -1,52 +1,39 @@
-import { useState } from "react"
-import { useEffect } from "react"
+import React, { useState } from "react";
 import Layout from "./Layout"
 import Home from "./Home"
 import User from "./User"
 
-const Admin = (props) => {
-    const mockEmployees = [
-        {
-          id: 0,
-          name: "mock",
-          lastname: 'mocklastname',
-          position: "Manager"
-        },
-        {
-          id: 1,
-          name: "employee 1",
-          lastname: "em",
-          position: "Engineer"
-        },
-        {
-          id: 2,
-          name: "employee 2",
-          lastname: "lord",
-          position: "Designer"
-        },
-      ]
+const Admin = ({employees,navigateToHome,navigateToUser,navigateToAdmin}) => {
 
-    const [employees, setEmployees] = useState(mockEmployees);
-    const [sector, setSector] = useState()
+    const [sector, setSector] = useState(null)
 
     if (sector === 'User') {
         return (
-            <div>
-                <User />
-            </div>
+
+                <User employees={employees}
+                    navigateToHome={navigateToHome}
+                    navigateToUser={navigateToUser}
+                    navigateToAdmin={navigateToAdmin} 
+                />
+
         )
       } else if (sector === 'Home') {
         return (
-          <div>
-              <Home />
-          </div>
+
+              <Home employees={employees}
+                navigateToHome={navigateToHome}
+                navigateToUser={navigateToUser}
+                navigateToAdmin={navigateToAdmin}
+              />
+
         )
       } else {
         return (
           <div>
-            admin
-            <button onClick={() => setSector("User")}>User Home Sector</button>
-            <button onClick={() => setSector("Home")}>Home Sector</button>
+            
+            <h1>Generation Thailand <br/> Home - Admin Sector</h1>
+            <button onClick={navigateToHome}>Home Sector</button>
+            <button onClick={navigateToUser}>User Home Sector</button>
             <table>
               <tr>
                 <th>name</th>
