@@ -26,13 +26,14 @@ const Admin = ({
 
   const handleSave = () => {
     const newEmployee = {
-      id: employeesList.length + 1,
-      name: name,
-      lastname: lastname,
-      position: position,
+        id: employeesList.length > 0 ? employeesList[employeesList.length - 1].id + 1 : 0,
+        name: name,
+        lastname: lastname,
+        position: position,
     };
 
     setEmployeesList([...employeesList, newEmployee]);
+    console.log(employeesList)
   };
 
   const handleDelete = (id) => {
