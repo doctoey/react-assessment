@@ -38,9 +38,9 @@ const User = ({employees,navigateToHome,navigateToUser,navigateToAdmin}) => {
             <button onClick={navigateToAdmin}>Admin Home Sector</button>
             <table>
               <tr>
-                <th>name</th>
-                <th>lastname</th>
-                <th>position</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Position</th>
               </tr>
               {employees.map((item) => {
                 return (
