@@ -39,11 +39,14 @@ const User = ({
         <button onClick={navigateToHome}>Home Sector</button>
         <button onClick={navigateToAdmin}>Admin Home Sector</button>
         <table>
+        <thead>
           <tr>
             <th>Name</th>
             <th>Lastname</th>
             <th>Position</th>
           </tr>
+        </thead>
+        <tbody>
           {employees.map((item) => {
             return (
               <tr key={item.id}>
@@ -53,6 +56,7 @@ const User = ({
               </tr>
             );
           })}
+        </tbody>
         </table>
       </div>
     );

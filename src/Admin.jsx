@@ -76,12 +76,15 @@ const Admin = ({
           <button onClick={handleSave}>SAVE</button>
         </div>
         <table>
+        <thead>
           <tr>
             <th>Name</th>
             <th>Lastname</th>
             <th>Position</th>
             <th>Action</th>
           </tr>
+        </thead>
+        <tbody>
           {employeesList.map((item) => {
             return (
               <tr key={item.id}>
@@ -94,6 +97,7 @@ const Admin = ({
               </tr>
             );
           })}
+        </tbody>
         </table>
       </div>
     );
