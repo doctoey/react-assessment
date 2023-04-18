@@ -4,22 +4,28 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Home from './Home'
 import Admin from './Admin'
-import Login from './Login'
+import User from './User'
+import Owner from './Owner'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />
   },
-  // {
-  //   path: '/',
-  //   element: <Admin />
-  // },
-  // {
-  //   path: '/',
-  //   element: <User />
-  // }
+  {
+    path: '/Admin',
+    element: <Admin />
+  },
+  {
+    path: '/User',
+    element: <User />
+  },
+  {
+    path: '/Owner',
+    element: <Owner />
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
